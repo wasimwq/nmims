@@ -1,0 +1,10 @@
+2026-06-23 07:29:27
+HTTP Code: 200
+Payload: {"name":"SADFGHJ","email":"test@gmail.com","phone":"9898980000","state":"Manipur","LeadSource":"Google","Lead_Vendor_Source":"NMIMS","EnquiredforProgram":"Online BCA","EnquiredforUniversity":"NMIMS","SourceCampaign":"","SourceContent":"","SourceMedium":"","SourceIPAddress":"182.156.1.66","utm_term":"","utm_source":"","utm_adgroup":"","mx_utm_gclid":""}
+Response: "{\"errors\":[\"Lead already exists. Reborn & Assignment logic executed.\"],\"success\":true,\"id\":\"a03IU00001jGkNIYA0\"}"
+
+2026-06-25 09:37:10
+HTTP Code: 200
+Payload: {"name":"Manoj jain","email":"Manojfromuk@gmail.com","phone":"9998359561","state":"Haryana","LeadSource":"Google","Lead_Vendor_Source":"NMIMS","EnquiredforProgram":"Online MBA","EnquiredforUniversity":"NMIMS","SourceCampaign":"HE-NMIMS-Online-MBA-1-PR","SourceContent":"CPC","SourceMedium":"Google","SourceIPAddress":"223.235.107.129","utm_term":"","utm_source":"","utm_adgroup":"","mx_utm_gclid":"Cj0KCQjwo_PRBhDNARIsAEcVALV7tDeQIzMOuXjDc4hst4w7PqHdmTK-c6FyPvSJ413Ox5PSjLuN_20aAgvoEALw_wcB"}
+Response: "{\"errors\":[],\"success\":true,\"id\":\"a03fv00000OLssSAAT\"}"
+

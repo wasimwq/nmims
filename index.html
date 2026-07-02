@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMIMS Online MBA</title>
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MFG3BLF3');</script>
+<!-- End Google Tag Manager -->
+  <!--chatbot-->
+  <style>
+   
+     @media (max-width: 768px) {
+	
+
+ .onlymobilepopupwq{
+       display:block !Important;
+   }
+	}
+   
+   
+   
+   
+   
+   
+   .onlymobilepopupwq{
+       display:none;
+   }
+   
+.send-box button{
+    align-items: center;
+    /*display: flex ;*/
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    /*background: none;*/
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor:pointer;
+    
+    background: #063C84;
+    border-radius: 16px;
+    width: 89%;
+ 
+}
+
+.send-box {
+    
+    padding: 5px;
+    /*background: #D4202D;*/
+    border-radius: 16px;
+    width: 89%;
+    margin: auto;
+}
+
+.chat-icon img{
+    width:42px;
+}
+
+.chat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+     background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-hero) 40%, #7a0090 70%, var(--purple-mid) 100%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 1000;
+    }
+
+    .chat-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .chat-popup {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 329px;
+      height: 468px;
+      display: none;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #3b1547, #1d0b2f);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .chat-header .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: color 0.2s ease;
+    }
+
+    .chat-header .close-btn:hover {
+      color: red;
+    }
+
+    .chat-header .chat-icon-top {
+      position: absolute;
+      left: 15px;
+      top: 10px;
+      width: 40px;
+      /*height: 35px;*/
+      border-radius:12px;
+    }
+
+    .chat-body {
+      height: 330px;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background-color: #f9f9f9;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .chat-message {
+      padding: 12px 15px;
+      border-radius: 20px;
+      max-width: 90%;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .bot-message {
+     background: linear-gradient(135deg, #3b1547, #1d0b2f);
+      align-self: flex-start;
+      color: white;
+    }
+
+    .user-message {
+      background-color: #9A231B;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .chat-footer {
+      padding: 15px;
+      display: flex;
+      gap: 10px;
+      background-color: white;
+      border-top: 2px solid #063C84;
+    }
+
+    .chat-footer input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 14px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .chat-footer input:focus {
+      border-color: #063C84;
+    }
+
+    .chat-footer button {
+      padding: 10px 16px;
+      background-color: #063C84;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    /*.chat-footer button:hover {*/
+    /*  background-color: #a51824;*/
+    /*  transform: scale(1.05);*/
+    /*}*/
+
+    .success-message {
+      text-align: center;
+      font-size: 16px;
+      color: #28a745;
+      margin-top: 15px;
+      font-weight: 700;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /*::-webkit-scrollbar-thumb {*/
+    /*  background: #D4202D;*/
+    /*  border-radius: 4px;*/
+    /*}*/
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a51824;
+    }
+
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+        
+        .chat-icon img{
+    width:30px;
+}
+
+            .chatbot-container {
+                width: 100%;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .chatbot-header {
+                font-size: 14px;
+            }
+
+            .chatbox {
+                height: 300px;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+
+            .input-container input {
+                font-size: 14px;
+            }
+
+            .input-container button {
+                font-size: 14px;
+                padding: 7px 12px;
+            }
+          
+        }
+
+        @media (max-width: 400px) {
+            .chatbot-header {
+                font-size: 12px;
+            }
+
+            .message {
+                max-width: 95%;
+            }
+        }
+        
+       /* Mobile responsiveness */
+@media (max-width: 600px) {
+  .chat-popup {
+          width: 68%;
+        bottom: 61px;
+        right: 18px;
+        height: 385px;
+  }
+
+  .chat-header {
+    font-size: 16px;
+    /*padding: 12px;*/
+  }
+
+  .chat-body {
+    padding: 10px;
+    gap: 10px;
+    height: 270px;
+    font-size: 14px;
+  }
+
+  .chat-footer {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between; /* Added this to ensure button and input stay on one line */
+  }
+
+  .chat-footer input {
+    flex: 1;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .chat-footer button {
+    font-size: 14px;
+    padding: 8px 12px;
+    background-color: #063C84;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  /*.chat-footer button:hover {*/
+  /*  background-color: #a51824;*/
+  /*  transform: scale(1.05);*/
+  /*}*/
+
+  .chat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .chat-header .close-btn {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .chat-popup {
+    width: 70%;
+    height: 341px;
+  }
+
+  .chat-header {
+    font-size: 14px;
+    /*padding: 10px;*/
+  }
+
+  .chat-body {
+    height: 230px;
+  }
+
+  .chat-footer input {
+    font-size: 13px;
+    padding: 7px;
+  }
+
+  .chat-footer button {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  .chat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .chat-header .close-btn {
+    font-size: 16px;
+  }
+}
+ 
+ .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .option-circle {
+    padding: 5px 6px;
+    background: #063C84;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+    border:2px solid #00FFFF;
+  }
+  .option-circle:hover {
+    background: #cc0000;
+  }
+  
+  .chat-header li {
+    font-size: 11px;
+    color: #00FFFF;
+    text-align: justify;
+    margin-left: 88px;
+}
+  .chat-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    animation: pop 0.3s ease-out;
+}    
+        
+  </style>
+  
+    <!--whatsapp chatbot-->
+  <style>
+/* ===== WHATSAPP WIDGET ===== */
+
+/* DESKTOP: Fixed left-center circle */
+.wa-widget {
+  position: fixed;
+  left: auto;
+  right: 20px;
+  top: auto;
+  bottom: 90px;
+  transform: none;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Popup card - appears to the right of circle */
+.wa-bubble {
+  position: absolute;
+  right: 0;
+  bottom: 75px;
+  top: auto;
+  left: auto;
+  transform: none;
+  background: #1a0533;
+  border: 1px solid rgba(37,211,102,0.3);
+  border-radius: 16px;
+  width: 230px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  display: none;
+  animation: waPop .4s cubic-bezier(.22,.9,.36,1.1) both;
+}
+.wa-bubble.show { display: block; }
+
+.wa-shimmer-bar {
+  height: 3px;
+  background: linear-gradient(90deg,#25D366,#128C7E,#25D366);
+  background-size: 200%;
+  animation: waShimmerBar 2s linear infinite;
+}
+.wa-bubble-inner { padding: 14px 14px 13px; }
+
+.wa-bubble-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+.wa-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wa-avatar img { width: 18px; height: 18px; }
+
+.wa-info strong {
+  display: block;
+  font-family: -apple-system,'Segoe UI',sans-serif;
+  font-size: 12px; font-weight: 700; color: #fff;
+}
+.wa-info span {
+  font-family: -apple-system,'Segoe UI',sans-serif;
+  font-size: 10px; color: #25D366;
+  display: flex; align-items: center; gap: 4px;
+}
+.wa-online-dot {
+  width: 6px; height: 6px; background: #25D366;
+  border-radius: 50%;
+  animation: waDotPulse 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+.wa-bubble p {
+  font-family: -apple-system,'Segoe UI',sans-serif;
+  font-size: 12.5px; color: rgba(255,255,255,0.85);
+  margin: 0 0 12px; line-height: 1.5;
+}
+.wa-bubble p span { color: #4EE88A; font-weight: 600; }
+
+.wa-chat-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 7px;
+  background: #25D366; color: #fff;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 0; border-radius: 10px;
+  text-decoration: none;
+  font-family: -apple-system,'Segoe UI',sans-serif;
+  transition: background .2s, transform .15s;
+  width: 100%;
+}
+.wa-chat-btn:hover { background: #1ebe57; transform: scale(1.02); }
+.wa-chat-btn svg { width: 15px; height: 15px; }
+
+.wa-close-btn {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: none;
+  font-size: 16px; color: rgba(255,255,255,0.35);
+  cursor: pointer; padding: 0; line-height: 1;
+  transition: color .2s;
+}
+.wa-close-btn:hover { color: #fff; }
+
+/* THE CIRCLE BUTTON */
+.wa-circle {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+  transition: transform .2s, box-shadow .2s;
+  animation: waSlideIn .7s 1s cubic-bezier(.22,.9,.36,1.1) both;
+  text-decoration: none;
+}
+.wa-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 36px rgba(37,211,102,0.7);
+}
+.wa-circle svg { width: 32px; height: 32px; animation: waBounce 2.2s ease-in-out infinite; }
+
+/* Ripple rings */
+.wa-ring {
+  position: absolute;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: waRipple 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.wa-ring:nth-child(2) { animation-delay: .8s; }
+.wa-ring:nth-child(3) { animation-delay: 1.6s; }
+
+/* Red notification dot */
+.wa-notif-dot {
+  position: absolute; top: 2px; right: 2px;
+  width: 14px; height: 14px;
+  background: #FF3B30; border-radius: 50%;
+  border: 2px solid #fff;
+  animation: waDotPulse 1.8s ease-in-out infinite;
+}
+
+/* Label below circle - desktop only */
+.wa-circle-label {
+  font-family: -apple-system,'Segoe UI',sans-serif;
+  font-size: 10px; color: rgba(255,255,255,0.7);
+  text-align: center; letter-spacing: 0.03em;
+  background: rgba(0,0,0,0.35);
+  padding: 3px 8px; border-radius: 20px;
+  white-space: nowrap;
+  animation: waSlideIn .7s 1.2s cubic-bezier(.22,.9,.36,1.1) both;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes waSlideIn {
+  from { opacity:0; transform:translateX(-30px) scale(.8); }
+  to   { opacity:1; transform:translateX(0) scale(1); }
+}
+@keyframes waPop {
+  from { opacity:0; transform:scale(.85) translateY(10px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+@keyframes waRipple {
+  0%   { transform:scale(1); opacity:.7; }
+  100% { transform:scale(2.2); opacity:0; }
+}
+@keyframes waBounce {
+  0%,100% { transform:translateY(0); }
+  50%      { transform:translateY(-4px); }
+}
+@keyframes waDotPulse {
+  0%,100% { transform:scale(1); }
+  50%      { transform:scale(1.3); }
+}
+@keyframes waShimmerBar {
+  0%   { background-position:0%; }
+  100% { background-position:200%; }
+}
+
+/* ===== MOBILE: Bottom-right floating circle only ===== */
+@media (max-width: 768px) {
+ .wa-widget {
+    position: fixed;
+    left: auto;
+    right: 11px;
+    bottom: 120px;
+    top: auto;
+    transform: none;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .wa-circle {
+    width: 56px; height: 56px;
+    animation: waMobileIn .6s 1s cubic-bezier(.22,.9,.36,1.1) both;
+  }
+  .wa-circle svg { width: 28px; height: 28px; }
+  .wa-ring { width:56px; height:56px; }
+  .wa-circle-label { display: none; }
+
+  /* Mobile popup - appears above the circle */
+  .wa-bubble {
+    position: static;
+    transform: none;
+    width: 210px;
+    margin-bottom: 10px;
+  }
+  .wa-bubble.show { display: block; }
+}
+
+@keyframes waMobileIn {
+  from { opacity:0; transform:scale(.5) rotate(-20deg); }
+  to   { opacity:1; transform:scale(1) rotate(0deg); }
+}
+</style>
+</head>
+<body>
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFG3BLF3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- HEADER -->
+<!-- <header class="header">
+  <div class="header-logo">
+    <img src="https://hikeeducation.com/nmims-online-mba/images/nmims_logo.png" alt="NMIMS Logo"/>
+  </div>
+</header> -->
+
+
+<!-- Chat icon -->
+<!--<div class="chat-icon" onclick="toggleChatPopup()">-->
+<!--  <a href="javascript:void(0)">-->
+<!--    <img src="https://hikeeducation.com/wp-content/uploads/2025/02/Mask-group-14.png" alt="Chat">-->
+<!--    <span class="chat-notification" id="chatNotification">1</span>-->
+<!--  </a>-->
+<!--</div>-->
+
+<!-- Chat popup -->
+<!--<div class="chat-popup" id="chatPopup">-->
+<!--  <div class="chat-header">-->
+<!--    <img src="https://hikeeducation.com/nmims-online-mba/images/fav-icon" alt="Chat Icon" class="chat-icon-top">-->
+<!--    NMIMS Online-->
+<!--    <li>Online</li>-->
+<!--    <span class="close-btn" onclick="toggleChatPopup()">✖</span>-->
+<!--  </div>-->
+<!--  <div class="chat-body" id="chatBody"></div>-->
+<!--  <div class="chat-footer">-->
+<!--    <input type="text" id="userInput" placeholder="Type your message..." />-->
+<!--    <button onclick="handleUserInput()">Send</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- Hidden lead form -->
+<!--<form id="leadForm" action="chatbot-verify.php" method="POST" style="display: none;">-->
+<!--  <input type="hidden" name="name"         id="fname">-->
+<!--  <input type="hidden" name="email"        id="email">-->
+<!--  <input type="hidden" name="mobile"       id="phoneno">-->
+<!--  <input type="hidden" name="city"         id="city">-->
+<!--  <input type="hidden" name="utm_source"   id="utm_source">-->
+<!--  <input type="hidden" name="utm_campaign" id="utm_campaign">-->
+<!--  <input type="hidden" name="utm_content"  id="utm_content">-->
+<!--  <input type="hidden" name="utm_medium"   id="utm_medium">-->
+<!--  <input type="hidden" name="utm_keyword"  id="utm_keyword">-->
+<!--  <input type="hidden" name="gclid"        id="gclid">-->
+<!--  <input type="hidden" name="current_url"  id="current_url">-->
+<!--</form>-->
+
+<script>
+  // ── UTM + URL capture (runs immediately on page load) ────────────────────
+  function getParam(param) {
+    return new URLSearchParams(window.location.search).get(param) || "";
+  }
+
+  document.getElementById("utm_source").value   = getParam("utm_source");
+  document.getElementById("utm_campaign").value = getParam("utm_campaign");
+  document.getElementById("utm_content").value  = getParam("utm_content");
+  document.getElementById("utm_medium").value   = getParam("utm_medium");
+  document.getElementById("utm_keyword").value  = getParam("utm_keyword");
+  document.getElementById("gclid").value        = getParam("gclid");
+  document.getElementById("current_url").value  = window.location.href;
+</script>
+
+<script>
+  // ── Chat popup toggle ────────────────────────────────────────────────────
+  const popupSound = new Audio('https://audio-previews.elements.envatousercontent.com/files/357949926/preview.mp3');
+
+  function toggleChatPopup() {
+    const chatPopup = document.getElementById("chatPopup");
+    const isOpening = chatPopup.style.display === "none" || chatPopup.style.display === "";
+    chatPopup.style.display = isOpening ? "block" : "none";
+    if (isOpening) {
+      popupSound.play().catch(e => console.error("Sound error:", e));
+      startChat();
+    }
+  }
+
+  function openChatPopup() {
+    const chatPopup = document.getElementById("chatPopup");
+    if (chatPopup) {
+      chatPopup.style.display = "block";
+      startChat();
+    }
+  }
+
+  function openFormPopup() {
+    const popupForm = document.getElementById("popupForm");
+    const overlay   = document.getElementById("overlay");
+    if (popupForm && overlay) {
+      popupForm.style.display = "block";
+      overlay.style.display  = "block";
+    }
+  }
+
+  function closePopup() {
+    document.getElementById("popupForm").style.display = "none";
+    document.getElementById("overlay").style.display   = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(openChatPopup, 1000);   // 1s me chatbot open
+    setTimeout(openFormPopup, 20000);  // 20s me form open
+  });
+</script>
+
+<script>
+  // ── Chatbot logic ────────────────────────────────────────────────────────
+  const chatBody  = document.getElementById("chatBody");
+  const userInput = document.getElementById("userInput");
+
+  const questions = [
+    "Hi, Welcome to NMIMS Online! What's your name?",
+    "Nice to meet you! What's your email?",
+    "Got it. What's your mobile number?",
+    "Great! Which city are you from?"
+  ];
+
+  const validations = [
+    (v) => /^[a-zA-Z\s]+$/.test(v)              || "Please enter a valid name (letters only).",
+    (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || "Please enter a valid email address.",
+    (v) => {
+      if (!/^\d{10}$/.test(v)) return "Please enter a valid 10-digit mobile number.";
+      if (!/^[6-9]/.test(v))   return "Please enter a valid mobile number.";
+      return true;
+    },
+    (v) => v.trim() !== "" || "Please enter a valid city."
+  ];
+
+  let userResponses        = [];
+  let currentQuestionIndex = 0;
+
+  function startChat() {
+    chatBody.innerHTML       = "";
+    currentQuestionIndex     = 0;
+    userResponses            = [];
+    displayMessage(questions[0], "bot");
+    userInput.focus();
+  }
+
+  function displayMessage(message, sender) {
+    const div       = document.createElement("div");
+    div.className   = `chat-message ${sender === "bot" ? "bot-message" : "user-message"}`;
+    div.textContent = message;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function handleUserInput() {
+    const input = userInput.value.trim();
+    if (!input) return;
+
+    const result = validations[currentQuestionIndex](input);
+    if (result !== true) {
+      displayMessage(result, "bot");
+      return;
+    }
+
+    displayMessage(input, "user");
+    userResponses.push(input);
+    userInput.value = "";
+
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      setTimeout(() => {
+        displayMessage(questions[currentQuestionIndex], "bot");
+        userInput.focus();
+      }, 500);
+    } else {
+      setTimeout(() => {
+        displayMessage("Thank you! Submitting your details...", "bot");
+        submitLead();
+      }, 500);
+    }
+  }
+
+  function submitLead() {
+    document.getElementById("fname").value   = userResponses[0];
+    document.getElementById("email").value   = userResponses[1];
+    document.getElementById("phoneno").value = userResponses[2];
+    document.getElementById("city").value    = userResponses[3];
+    // UTM + current_url already set at page load
+    document.getElementById("leadForm").submit();
+  }
+
+  userInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); handleUserInput(); }
+  });
+</script>
+
+
+
+
+<header class="header">
+  <div class="header-inner">
+    
+    <!-- LEFT LOGO -->
+    <div class="header-logo">
+      <img src="images/nmimslogo.webp" alt="NMIMS Logo"/>
+    </div>
+
+    <!-- RIGHT BUTTON -->
+    <a href="#" class="enquire-btn nm-open-popup">Enquire Now</a>
+
+  </div>
+</header>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+ 
+    <!-- LEFT TEXT -->
+    <div class="hero-text">
+      <div class="badge">NMIMS Online MBA</div>
+      <h1 class="hero-title">Elevate Your Career</h1>
+      <p class="hero-subtitle">Ready to take your career to the next level? The NMIMS Online MBA is designed for working professionals who want flexibility without compromising on quality.</p>
+      <button class="cta-btn nm-open-popup">
+        Don't Miss The Opportunity <span class="cta-arrow">→</span>
+      </button>
+     
+
+
+      <div class="badges-row">
+        <!-- Replace src with your 3-badges image path -->
+        <img class="badges-img" src="images/accc.webp" alt="NAAC Badges" onerror="this.style.opacity='0'"/>
+      </div>
+    </div>
+ 
+    <!-- CENTER IMAGE -->
+    <div class="hero-image">
+      <!-- Replace src with your girl image path -->
+      <img src="images/nmimsbanner.webp" alt="Student" onerror="this.style.display='none'"/>
+    </div>
+ 
+    <!-- RIGHT FORM -->
+  
+
+  <div class="form-card">
+    <form class="lead-form" method="POST" action="submit.php">
+    <h2 class="form-title">Enquire Now</h2>
+    <p class="form-subtitle">Hurry Up &amp; Get Free Counselling.</p>
+
+    <div class="field-group">
+      <label class="field-label">Name</label>
+      <input class="field-input" type="text" name="name" placeholder="Enter Name" required/>
+    </div>
+
+  <div class="field-group">
+  <label class="field-label">Email ID</label>
+  <div class="error-msg"></div>
+  <input class="field-input email" type="email" name="email" placeholder="Enter Email ID"/>
+</div>
+
+<div class="field-group">
+  <label class="field-label">Mobile Number</label>
+  <div class="error-msg"></div>
+  <input class="field-input phone" type="tel" name="mobile" placeholder="Enter Mobile Number"/>
+</div>
+
+   <div class="row-half">
+
+  <div class="field-group">
+    <label class="field-label">Select Course</label>
+    <div class="select-wrap">
+   <select name="program" required>
+  <option value="" disabled selected>Select Course</option>
+  <option value="Online MBA">Online MBA</option>
+  <option value="Online MCA">Online MCA</option>
+  <option value="Online BBA">Online BBA</option>
+  <option value="Online BCA">Online BCA</option>
+  <option value="Other">Other</option>
+</select>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label class="field-label">State</label>
+    <div class="select-wrap">
+     <select class="field-input" name="state">
+  <option value="" disabled selected>Select</option>
+
+  <option>Andhra Pradesh</option>
+  <option>Arunachal Pradesh</option>
+  <option>Assam</option>
+  <option>Bihar</option>
+  <option>Chhattisgarh</option>
+  <option>Goa</option>
+  <option>Gujarat</option>
+  <option>Haryana</option>
+  <option>Himachal Pradesh</option>
+  <option>Jharkhand</option>
+  <option>Karnataka</option>
+  <option>Kerala</option>
+  <option>Madhya Pradesh</option>
+  <option>Maharashtra</option>
+  <option>Manipur</option>
+  <option>Meghalaya</option>
+  <option>Mizoram</option>
+  <option>Nagaland</option>
+  <option>Odisha</option>
+  <option>Punjab</option>
+  <option>Rajasthan</option>
+  <option>Sikkim</option>
+  <option>Tamil Nadu</option>
+  <option>Telangana</option>
+  <option>Tripura</option>
+  <option>Uttar Pradesh</option>
+  <option>Uttarakhand</option>
+  <option>West Bengal</option>
+
+  <!-- Union Territories -->
+  <option>Andaman and Nicobar Islands</option>
+  <option>Chandigarh</option>
+  <option>Dadra and Nagar Haveli and Daman and Diu</option>
+  <option>Delhi</option>
+  <option>Jammu and Kashmir</option>
+  <option>Ladakh</option>
+  <option>Lakshadweep</option>
+  <option>Puducherry</option>
+
+</select>
+    </div>
+  </div>
+
+</div>
+
+    <div class="check-row">
+      <input type="checkbox" id="agree" checked required/>
+      <label for="agree">I agree to get updates from counsellor</label>
+    </div>
+
+    <!-- ðŸ”¥ HIDDEN FIELDS -->
+    <input type="hidden" name="utm_source" class="utm_source">
+    <input type="hidden" name="utm_medium" class="utm_medium">
+    <input type="hidden" name="utm_campaign" class="utm_campaign">
+    <input type="hidden" name="utm_adgroup" class="utm_adgroup">
+    <input type="hidden" name="utm_term" class="utm_term">
+    <input type="hidden" name="utm_content" class="utm_content">
+    <input type="hidden" name="gclid" class="gclid">
+    <input type="hidden" name="page_url" class="page_url">
+    <input type="hidden" name="user_ip" class="user_ip">
+
+    <button class="submit-btn prevent-multiple" type="submit">
+  Submit
+</button>
+  </form>
+  
+</div>
+
+
+ 
+  </div>
+</section>
+
+<section class="nm-why-compact">
+  <div class="nm-why-container">
+
+    <h2>Why Choose NMIMS Online?</h2>
+
+    <div class="nm-why-cards">
+
+      <div class="nm-card">
+        <span class="nm-bg-num">01</span>
+        <h3>1,57,000+</h3>
+        <p>NMIMS CDOE has transformed over 1,57,000 lives through quality education and career advancement.</p>
+      </div>
+
+      <div class="nm-card">
+        <span class="nm-bg-num">02</span>
+        <h3>82,000+</h3>
+        <p>NMIMS CDOE boasts a strong global network of over 82,000 professionals across diverse industries and regions worldwide</p>
+      </div>
+
+      <div class="nm-card">
+        <span class="nm-bg-num">03</span>
+        <h3>8,000+</h3>
+        <p>Over 8,000 leading firms across industries trust and actively hire alumni from NMIMS CDOE, reflecting strong industry recognition and career opportunities</p>
+      </div>
+
+      <div class="nm-card">
+        <span class="nm-bg-num">04</span>
+        <h3>30+</h3>
+        <p>programs tailored specifically for working professionals, offering flexibility, career growth, and practical industry skills</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="spec-section">
+  <div class="spec-header" id="specHeader">
+    <h2>MBA Online Specialisations</h2>
+    <p>Get ready to take your career to the next level with NMIMS CDOE's MBA program.</p>
+  </div>
+ 
+  <div class="cards-grid" id="cardsGrid">
+ 
+    <div class="spec-card active" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div>
+      <div class="card-title">Financial Management</div>
+      <div class="card-desc">Master corporate finance, investment strategies and financial decision-making.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <div class="card-title">Business Management</div>
+      <div class="card-desc">Build leadership skills and strategic thinking to drive organisational growth.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="card-title">Marketing Management</div>
+      <div class="card-desc">Learn brand strategy, digital marketing and consumer behaviour insights.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="card-title">Human Resource Management</div>
+      <div class="card-desc">Develop people management, talent acquisition and HR strategy expertise.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="card-title">Operations & Data Science</div>
+      <div class="card-desc">Combine operational efficiency with data-driven decision making skills.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div class="card-title">IT Management</div>
+      <div class="card-desc">Bridge technology and business with IT strategy and digital transformation.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+    <div class="spec-card" onclick="setActive(this)">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="card-title">Business Analytics</div>
+      <div class="card-desc">Turn complex data into actionable insights with analytics and visualisation tools.</div>
+      <span class="card-link nm-open-popup">Learn more →</span>
+    </div>
+ 
+  </div>
+ 
+  <div class="view-all-wrap" id="viewAll">
+    <!-- Desktop button -->
+    <button class="view-all-btn">
+      View All
+      <span class="btn-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
+    </button>
+    <!-- Mobile toggle button -->
+    <button id="mobToggleBtn" onclick="toggleMobile()">
+      <span id="mobToggleLabel">View All</span>
+      <span class="btn-circle" id="mobToggleIcon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- CERTIFICATE SECTION -->
+<section class="cert-section">
+  <div class="cert-inner">
+    <div class="cert-text" id="certText">
+      <div class="section-tag">Program Certificate</div>
+      <h2 class="cert-title">Earn Your NMIMS Certificate</h2>
+      <p class="cert-desc">Earn an official certificate from NMIMS CDOE that recognizes your dedication to learning and pursuit of excellence.</p>
+      <ul class="cert-points">
+        <li>Recognised by top employers across India</li>
+        <li>Issued by NMIMS CDOE  —  a Deemed University</li>
+        <li>Shareable on LinkedIn &amp; job portals</li>
+        <li>Valid proof of NAAC A++ accredited institution</li>
+      </ul>
+    </div>
+    <div class="cert-image-wrap" id="certImg">
+      <div class="cert-img-frame">
+    
+        <img src="images/cerificate.webp" alt="NMIMS Certificate"/>
+        <div class="cert-badge-row">
+          <div class="cert-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Official Certificate
+          </div>
+          <div class="cert-badge">NMIMS CDOE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FEE SECTION -->
+<section class="fee-section">
+  <div class="fee-inner">
+    <div class="fee-header" id="feeHeader">
+      <h2>Fee Structure &amp; EMI Options</h2>
+      <p>Select a payment plan that works for you  —  pay semester-wise across 4 semesters or annually over 2 years.</p>
+    </div>
+ 
+    <div class="fee-grid">
+      <div class="fee-card card-annual" id="feeCard1">
+        <div class="fee-option-label">Option 1</div>
+        <div class="fee-option-title">Annual Payment</div>
+        <div class="fee-amount-wrap">
+          <span class="fee-currency">₹</span>
+          <span class="fee-amount">1,05,000</span>
+          <span class="fee-period">/ year</span>
+        </div>
+        <div class="fee-divider"></div>
+        <ul class="fee-perks">
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pay once per year</li>
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 installments over 2 years</li>
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Best value plan</li>
+        </ul>
+        <button class="fee-cta nm-open-popup">Enroll Now</button>
+      </div>
+ 
+      <div class="fee-card card-semester" id="feeCard2">
+        <div class="fee-option-label">Option 2</div>
+        <div class="fee-option-title">Semester-Wise Payment</div>
+        <div class="fee-amount-wrap">
+          <span class="fee-currency">₹</span>
+          <span class="fee-amount">55,000</span>
+          <span class="fee-period">/ semester</span>
+        </div>
+        <div class="fee-divider"></div>
+        <ul class="fee-perks">
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 flexible installments</li>
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pay per semester</li>
+          <li><span class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Easier on monthly budget</li>
+        </ul>
+        <button class="fee-cta nm-open-popup">Enroll Now</button>
+      </div>
+    </div>
+ 
+    <p class="fee-note" id="feeNote">EMI options available. <span>Talk to our counsellor</span> for zero-cost EMI details.</p>
+  </div>
+</section>
+ 
+<section class="adm-section">
+  <div class="adm-header" id="admHeader">
+    <div class="adm-tag">Admission Process</div>
+    <h2>How to Get Admitted</h2>
+    <p>Simple 4-step process to begin your MBA journey with NMIMS CDOE.</p>
+  </div>
+ 
+  <div class="adm-timeline">
+ 
+    <div class="adm-step odd" id="admStep1">
+      <div class="step-card">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="step-num-label">Step 1</div>
+        <div class="step-title">Registration</div>
+        <div class="step-desc">Visit the NMIMS website, complete the online registration form, and pay the required fees to begin your application.</div>
+      </div>
+      <div class="step-center"><div class="step-bubble">1</div></div>
+      <div class="step-empty"></div>
+    </div>
+ 
+    <div class="adm-step even" id="admStep2">
+      <div class="step-empty"></div>
+      <div class="step-center"><div class="step-bubble">2</div></div>
+      <div class="step-card">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="step-num-label">Step 2</div>
+        <div class="step-title">Document Submission</div>
+        <div class="step-desc">Submit academic documents, work experience proof (if any), and a photocopy of your photo ID for verification.</div>
+      </div>
+    </div>
+ 
+    <div class="adm-step odd" id="admStep3">
+      <div class="step-card">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="step-num-label">Step 3</div>
+        <div class="step-title">Fee Payment</div>
+        <div class="step-desc">Pay the fees online or by demand draft payable to SVKM NMIMS once your documents have been submitted.</div>
+      </div>
+      <div class="step-center"><div class="step-bubble">3</div></div>
+      <div class="step-empty"></div>
+    </div>
+ 
+    <div class="adm-step even" id="admStep4">
+      <div class="step-empty"></div>
+      <div class="step-center"><div class="step-bubble">4</div></div>
+      <div class="step-card">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="step-num-label">Step 4</div>
+        <div class="step-title">Confirmation</div>
+        <div class="step-desc">After document approval, your admission is confirmed and the university issues you an official Student Number.</div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <div class="adm-cta" id="admCta">
+    <button class="adm-cta-btn nm-open-popup">Start Your Application →</button>
+  </div>
+</section>
+
+<section class="nm-lead">
+  <div class="nm-lead-container">
+
+    <h2>Lead the Future</h2>
+
+    <div class="nm-lead-grid">
+
+      <!-- CARD -->
+      <div class="nm-lead-card">
+        <div class="nm-top">
+          <h3>Live Interactive & Recorded Lectures</h3>
+        </div>
+        <div class="nm-bottom">
+          <p>24/7 access to all content, including recorded sessions of lectures</p>
+        </div>
+      </div>
+
+      <div class="nm-lead-card">
+        <div class="nm-top">
+          <h3>High Focus on Academic Excellence</h3>
+        </div>
+        <div class="nm-bottom">
+          <p>600+ faculty members, including academicians and industry experts Globally curated curriculum</p>
+        </div>
+      </div>
+
+      <div class="nm-lead-card">
+        <div class="nm-top">
+          <h3>Dynamic, Application Oriented Assessment</h3>
+        </div>
+        <div class="nm-bottom">
+          <p>Computer-based exams at designated centres all over India</p>
+        </div>
+      </div>
+
+      <div class="nm-lead-card">
+        <div class="nm-top">
+          <h3>Convenient Payment Option</h3>
+        </div>
+        <div class="nm-bottom">
+          <p>Flexible payment options with loan facility</p>
+        </div>
+      </div>
+
+      <div class="nm-lead-card">
+        <div class="nm-top">
+          <h3>Latest Tech Based Learning Systems</h3>
+        </div>
+        <div class="nm-bottom">
+          <p>Excellent mobile application based learning platform Facilities like recorded lectures & eBooks</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="nm-stats">
+
+  <!-- OVERLAY -->
+  <div class="nm-overlay"></div>
+
+  <div class="nm-stats-container">
+
+    <h2>NMIMS CDOE Highlights</h2>
+
+    <div class="nm-stats-row">
+
+      <div class="nm-stat-card">
+        <h3 class="count" data-target="500">0</h3>
+        <p>Hiring Partners</p>
+      </div>
+
+      <div class="nm-stat-card active">
+        <h3 class="count" data-target="82000">0</h3>
+        <p>Alumni</p>
+      </div>
+
+      <div class="nm-stat-card">
+        <h3 class="count" data-target="40">0</h3>
+        <p>years of excellence providing education</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="nm-about-sec">
+  <div class="nm-about-wrap">
+
+    <!-- LEFT -->
+    <div class="nm-about-content">
+      <h2>About</h2>
+
+      <p>
+        NMIMS CDOE is the distance and online education centre of NMIMS University. NMIMS CDOE began its ODL & OL journey in 2013 with a state of the art learning management system to provide interactive learning on connected platforms 24/7.
+      </p>
+
+      <p>
+        NMIMS CDOE is changing the dynamics of higher education delivery in India while empowering students across India and enabling them to fulfil their dreams and aspirations.
+      </p>
+
+      <a href="#" class="nm-about-btn nm-open-popup">Want to Know More →</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nm-about-img">
+      <img src="images/about.webp" alt="NMIMS">
+    </div>
+
+  </div>
+</section>
+
+<section class="nm-faq-pro">
+  <div class="nm-faq-wrap">
+
+    <h2>FAQ</h2>
+
+    <div class="nm-faq-item active">
+      <button class="nm-faq-q">
+        1. Is an Online MBA from NMIMS valid?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          Yes, the NMIMS Online MBA is recognized and holds UGC Category-I autonomy status, making it a credible and widely accepted qualification.
+        </p>
+      </div>
+    </div>
+
+    <div class="nm-faq-item">
+      <button class="nm-faq-q">
+        2. Will I receive placement support after completing the MBA in Human Resources?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          Yes, NMIMS CDOE Career Services offers dedicated placement assistance along with career development modules to support your professional growth. This includes access to interview opportunities, mentorship from industry experts, and guidance to enhance your employability and advance your career after completing the program.
+        </p>
+      </div>
+    </div>
+
+    <div class="nm-faq-item">
+      <button class="nm-faq-q">
+        3. How can an MBA in Human Resources enhance my career?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          This program equips you with the skills to align talent strategies with organizational goals and build high-performing workplaces through effective HR management. You'll also gain access to valuable networking opportunities with industry experts, potential employers, and a strong alumni network to accelerate your career growth.
+        </p>
+      </div>
+    </div>
+
+    <div class="nm-faq-item">
+      <button class="nm-faq-q">
+        4. What are the long-term benefits of pursuing an Online MBA?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          An Online MBA enables you to advance your corporate career at your own pace with a flexible, industry-relevant curriculum. It helps you maintain a healthy work–life–study balance while building essential management and leadership skills needed to grow into senior roles.
+        </p>
+      </div>
+    </div>
+
+    <div class="nm-faq-item">
+      <button class="nm-faq-q">
+        5. How can an MBA in Marketing Management boost my career?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          This program equips you with the expertise to create cost-effective digital marketing strategies, identify and engage target audiences, and build strong customer relationships. These in-demand skills enhance your professional value in today's fast-paced and competitive marketing landscape.
+        </p>
+      </div>
+    </div>
+
+    <div class="nm-faq-item">
+      <button class="nm-faq-q">
+        6. Does the MBA in Marketing curriculum balance managerial and technical skills?
+      </button>
+      <div class="nm-faq-a">
+        <p>
+          Yes, the curriculum is designed to offer a strong blend of managerial and technical learning. It includes core subjects like Business Management, Financial Management, and Consumer Behavior, along with specialized areas such as Market Analytics, Business Laws, and Digital Marketing—preparing you for the evolving demands of the business world.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer class="nm-footer">
+
+  <div class="nm-footer-top">
+
+    <p class="nm-disclaimer">
+      <strong>Disclaimer:</strong> We are an Authorized Enrollment Partner (AEP) for NMIMS CDOE. Our role is limited to providing verified program information and assisting students with the application process. All admissions, academic decisions, program delivery, examinations, and certifications are solely handled and governed by NMIMS CDOE.
+    </p>
+
+    <div class="nm-footer-links">
+      <a href="termandcondition.html" target="_blank">Terms & Condition</a>
+      <span>|</span>
+      <a href="privacypolicy.html" target="_blank">Privacy Policy</a>
+    </div> 
+
+  </div>
+
+  <div class="nm-footer-bottom">
+    © 2026 All Rights Reserved. 
+  </div>
+
+</footer>
+
+<!-- <button class="nm-open-popup">Apply Now</button> -->
+<div class="nm-popup" id="nmPopup">
+  <div class="nm-popup-overlay"></div>
+
+  <div class="nm-popup-box">
+
+    <span class="nm-close">&times;</span>
+
+    <form class="lead-form" method="POST" action="submit.php">
+
+      <div class="form-card">
+        <div class="form-header">
+    <h2>Enquire Now</h2>
+    <p>Hurry Up &amp; Get Free Counselling.</p>
+  </div>
+
+        <div class="field-group">
+          <label class="field-label">Name</label>
+          <input class="field-input" type="text" name="name" placeholder="Enter Name" required/>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Email ID</label>
+          <div class="error-msg"></div>
+          <input class="field-input email" type="email" name="email" placeholder="Enter Email ID"/>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Mobile Number</label>
+          <div class="error-msg"></div>
+          <input class="field-input phone" type="tel" name="mobile" placeholder="Enter Mobile Number"/>
+        </div>
+
+        <div class="row-half">
+
+          <div class="field-group">
+        <label class="field-label">Select Course</label>
+    <div class="select-wrap">
+   <select name="program" required>
+  <option value="" disabled selected>Select Course</option>
+  <option value="Online MBA">Online MBA</option>
+  <option value="Online MCA">Online MCA</option>
+  <option value="Online BBA">Online BBA</option>
+  <option value="Online BCA">Online BCA</option>
+  <option value="Other">Other</option>
+</select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">State</label>
+            <div class="select-wrap">
+             <select class="field-input" name="state">
+  <option value="" disabled selected>Select</option>
+
+  <option>Andhra Pradesh</option>
+  <option>Arunachal Pradesh</option>
+  <option>Assam</option>
+  <option>Bihar</option>
+  <option>Chhattisgarh</option>
+  <option>Goa</option>
+  <option>Gujarat</option>
+  <option>Haryana</option>
+  <option>Himachal Pradesh</option>
+  <option>Jharkhand</option>
+  <option>Karnataka</option>
+  <option>Kerala</option>
+  <option>Madhya Pradesh</option>
+  <option>Maharashtra</option>
+  <option>Manipur</option>
+  <option>Meghalaya</option>
+  <option>Mizoram</option>
+  <option>Nagaland</option>
+  <option>Odisha</option>
+  <option>Punjab</option>
+  <option>Rajasthan</option>
+  <option>Sikkim</option>
+  <option>Tamil Nadu</option>
+  <option>Telangana</option>
+  <option>Tripura</option>
+  <option>Uttar Pradesh</option>
+  <option>Uttarakhand</option>
+  <option>West Bengal</option>
+
+  <!-- Union Territories -->
+  <option>Andaman and Nicobar Islands</option>
+  <option>Chandigarh</option>
+  <option>Dadra and Nagar Haveli and Daman and Diu</option>
+  <option>Delhi</option>
+  <option>Jammu and Kashmir</option>
+  <option>Ladakh</option>
+  <option>Lakshadweep</option>
+  <option>Puducherry</option>
+
+</select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" checked required/>
+          <label>I agree to get updates from counsellor</label>
+        </div>
+
+        <!-- hidden fields same -->
+        <input type="hidden" name="utm_source" class="utm_source">
+        <input type="hidden" name="utm_medium" class="utm_medium">
+        <input type="hidden" name="utm_campaign" class="utm_campaign">
+        <input type="hidden" name="utm_adgroup" class="utm_adgroup">
+        <input type="hidden" name="utm_term" class="utm_term">
+        <input type="hidden" name="utm_content" class="utm_content">
+        <input type="hidden" name="gclid" class="gclid">
+        <input type="hidden" name="page_url" class="page_url">
+        <input type="hidden" name="user_ip" class="user_ip">
+
+        <button class="submit-btn prevent-multiple" type="submit">
+  Submit
+</button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- WhatsApp Widget -->
+<div class="wa-widget" id="waWidget">
+
+  <!-- Popup Card -->
+  <div class="wa-bubble" id="waBubble">
+    <div class="wa-shimmer-bar"></div>
+    <div class="wa-bubble-inner">
+      <button class="wa-close-btn" onclick="document.getElementById('waBubble').classList.remove('show')" aria-label="Close">×</button>
+      <div class="wa-bubble-top">
+        <div class="wa-avatar">
+          <!--<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+          <!--  <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.62 4.46 1.71 6.32L3 29l6.84-1.69A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z" fill="white"/>-->
+          <!--  <path d="M12 12c-.24.55-.48 1.21.12 1.94.6.72 1.69 2.2 1.69 2.2s.24.36-.12.84c-.36.48-1.33 1.45-1.45 1.69-.12.24 0 .48.12.6.6.72 1.45 1.57 2.42 2.17.84.48 1.81.84 2.66.84.48 0 .84-.24 1.09-.6l.6-1.09c.12-.24.36-.24.6-.12l1.93.96c.24.12.36.48.24.84-.36 1.09-1.45 1.69-2.42 1.57-1.81-.24-4.11-1.21-6.04-3.38-1.81-2.05-2.54-4.47-2.17-6.28.24-.84.84-1.45 1.57-1.57.36 0 .6.36.6.72 0 0-.12.12-.12.36z" fill="#25D366"/>-->
+          <!--</svg>-->
+           <img src="images/fav-icon.png" alt="NMIMS Logo"/>
+        </div>
+        <div class="wa-info">
+          <strong>NMIMS Online</strong>
+          <span><span class="wa-online-dot"></span> Online Now</span>
+        </div>
+      </div>
+      <p>👋 Interested in <span>NMIMS Online?</span><br>Get free counselling from our expert instantly!</p>
+      <a class="wa-chat-btn" href="https://wa.me/919311945742?text=Hi%2C%20I%E2%80%99m%20interested.%20Please%20share%20more%20details." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Circle Button -->
+  <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
+    <span class="wa-ring"></span>
+    <span class="wa-ring" style="animation-delay:.8s"></span>
+    <span class="wa-ring" style="animation-delay:1.6s"></span>
+    <a class="wa-circle"
+       href="https://wa.me/919311945742?text=Hi%2C%20I%E2%80%99m%20interested.%20Please%20share%20more%20details."
+       target="_blank" rel="noopener"
+       id="waCircle"
+       aria-label="Chat on WhatsApp"
+       onclick="toggleBubble(event)">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.62 4.46 1.71 6.32L3 29l6.84-1.69A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z" fill="white"/>
+        <path d="M12 12c-.24.55-.48 1.21.12 1.94.6.72 1.69 2.2 1.69 2.2s.24.36-.12.84c-.36.48-1.33 1.45-1.45 1.69-.12.24 0 .48.12.6.6.72 1.45 1.57 2.42 2.17.84.48 1.81.84 2.66.84.48 0 .84-.24 1.09-.6l.6-1.09c.12-.24.36-.24.6-.12l1.93.96c.24.12.36.48.24.84-.36 1.09-1.45 1.69-2.42 1.57-1.81-.24-4.11-1.21-6.04-3.38-1.81-2.05-2.54-4.47-2.17-6.28.24-.84.84-1.45 1.57-1.57.36 0 .6.36.6.72 0 0-.12.12-.12.36z" fill="#25D366"/>
+      </svg>
+      <span class="wa-notif-dot"></span>
+    </a>
+  </div>
+
+  <!-- Label (desktop only) -->
+  <div class="wa-circle-label">WhatsApp Us</div>
+
+</div>
+
+<script>
+  var bubbleOpen = false;
+  var isMobile = window.innerWidth <= 768;
+
+function toggleBubble(e) {
+    if (!isMobile) {
+      var b = document.getElementById('waBubble');
+      bubbleOpen = !bubbleOpen;
+      if (bubbleOpen) b.classList.add('show');
+      else b.classList.remove('show');
+      // WhatsApp bhi khulega same time pe
+    }
+  }
+
+  // Auto show popup after 3s on DESKTOP only
+  if (!isMobile) {
+    setTimeout(function(){
+      var b = document.getElementById('waBubble');
+      if(b && !bubbleOpen){ b.classList.add('show'); bubbleOpen=true; }
+    }, 3000);
+    setTimeout(function(){
+      var b = document.getElementById('waBubble');
+      if(b){ b.classList.remove('show'); bubbleOpen=false; }
+    }, 12000);
+  }
+
+  window.addEventListener('resize', function(){
+    isMobile = window.innerWidth <= 768;
+  });
+</script>
+<!-- End WhatsApp Widget -->
+
+<!--<a href="#" class="nm-bottom-bar nm-open-popup">-->
+<!--  <span class="nm-icon">ðŸ“ž</span>-->
+<!--  <span class="nm-text">Apply Now</span>-->
+<!--</a>-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.getElementById("nmPopup");
+
+  // OPEN (instant)
+  document.querySelectorAll(".nm-open-popup").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popup.classList.add("active");
+    });
+  });
+
+  // CLOSE BUTTON
+  document.querySelector(".nm-close").addEventListener("click", () => {
+    popup.classList.remove("active");
+  });
+
+  // OVERLAY CLOSE
+  document.querySelector(".nm-popup-overlay").addEventListener("click", () => {
+    popup.classList.remove("active");
+  });
+
+  // AUTO POPUP (10 sec)
+  setTimeout(() => {
+    popup.classList.add("active");
+  }, 10000);
+
+});
+</script>
+
+<script>
+document.querySelectorAll(".lead-form").forEach(form => {
+
+  const phoneInput = form.querySelector(".phone");
+  const emailInput = form.querySelector(".email");
+
+  // ðŸ”¥ PHONE INPUT RESTRICTION (only number)
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+  });
+
+  form.addEventListener("submit", function(e) {
+
+    let valid = true;
+
+    // EMAIL VALIDATION
+    const emailError = emailInput.previousElementSibling;
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailValue)) {
+      emailError.innerText = "Please enter a valid email";
+      emailError.style.display = "block";
+      emailInput.classList.add("error");
+      valid = false;
+    } else {
+      emailError.style.display = "none";
+      emailInput.classList.remove("error");
+    }
+
+    // PHONE VALIDATION
+    const phoneError = phoneInput.previousElementSibling;
+    const phoneValue = phoneInput.value.trim();
+
+    if (!/^[6-9]\d{9}$/.test(phoneValue)) {
+      phoneError.innerText = "Enter valid 10 digit mobile number (6-9 se start)";
+      phoneError.style.display = "block";
+      phoneInput.classList.add("error");
+      valid = false;
+    } else {
+      phoneError.style.display = "none";
+      phoneInput.classList.remove("error");
+    }
+
+    if (!valid) e.preventDefault();
+
+  });
+
+});
+</script>
+
+<script>
+function getParam(param) {
+  const url = new URL(window.location.href);
+  return url.searchParams.get(param) || "";
+}
+
+document.querySelectorAll(".lead-form").forEach(form => {
+
+  form.querySelector(".utm_source").value = getParam("utm_source");
+  form.querySelector(".utm_medium").value = getParam("utm_medium");
+  form.querySelector(".utm_campaign").value = getParam("utm_campaign");
+  form.querySelector(".utm_adgroup").value = getParam("utm_adgroup");
+  form.querySelector(".utm_term").value = getParam("utm_term");
+  form.querySelector(".utm_content").value = getParam("utm_content");
+
+  form.querySelector(".gclid").value = getParam("gclid");
+
+  form.querySelector(".page_url").value = window.location.href;
+
+  // Fetch IP dynamically
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+      form.querySelector(".user_ip").value = data.ip;
+    });
+
+});
+</script>
+
+ <script>
+document.querySelectorAll(".nm-faq-q").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const item = btn.parentElement;
+
+    document.querySelectorAll(".nm-faq-item").forEach(i => {
+      if (i !== item) i.classList.remove("active");
+    });
+
+    item.classList.toggle("active");
+  });
+});
+</script>
+ <script>
+const counters = document.querySelectorAll('.count');
+
+counters.forEach(counter => {
+  let target = +counter.getAttribute('data-target');
+  let count = 0;
+  let speed = target / 100;
+
+  const update = () => {
+    if (count < target) {
+      count += speed;
+      counter.innerText = Math.floor(count).toLocaleString();
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target.toLocaleString() + '+';
+    }
+  };
+
+  update();
+});
+</script>
+<script>
+  var admObs = new IntersectionObserver(function(e){
+    e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+ 
+  ['admHeader','admStep1','admStep2','admStep3','admStep4','admCta'].forEach(function(id, i){
+    var el = document.getElementById(id);
+    if(el){ el.style.transitionDelay = (i * 100) + 'ms'; admObs.observe(el); }
+  });
+</script>
+<script>
+  var certFeeObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+ 
+  ['certText','certImg','feeHeader','feeCard1','feeCard2','feeNote'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) certFeeObs.observe(el);
+  });
+  var fc2 = document.getElementById('feeCard2');
+  if(fc2) fc2.style.transitionDelay = '150ms';
+</script>
+<script>
+  var mobExpanded = false;
+ 
+  function toggleMobile() {
+    mobExpanded = !mobExpanded;
+    var allCards = document.querySelectorAll('.spec-card');
+ 
+    if (mobExpanded) {
+      allCards.forEach(function(c) {
+        c.style.display = '';
+        setTimeout(function(){ c.classList.add('visible'); }, 10);
+      });
+      document.getElementById('mobToggleLabel').textContent = 'View Less';
+      document.getElementById('mobToggleIcon').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+    } else {
+      allCards.forEach(function(c, i) {
+        if (i >= 3) c.style.display = 'none';
+      });
+      document.getElementById('mobToggleLabel').textContent = 'View All';
+      document.getElementById('mobToggleIcon').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+    }
+  }
+ 
+  function setActive(el) {
+    document.querySelectorAll('.spec-card').forEach(function(c){ c.classList.remove('active'); });
+    el.classList.add('active');
+  }
+ 
+  function initMobileState() {
+    var allCards = document.querySelectorAll('.spec-card');
+    if (window.innerWidth <= 600) {
+      allCards.forEach(function(c, i){ if (i >= 3) c.style.display = 'none'; });
+    } else {
+      allCards.forEach(function(c){ c.style.display = ''; });
+      mobExpanded = false;
+    }
+  }
+ 
+  initMobileState();
+  window.addEventListener('resize', initMobileState);
+ 
+  var specObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+ 
+  specObserver.observe(document.getElementById('specHeader'));
+  specObserver.observe(document.getElementById('viewAll'));
+  document.querySelectorAll('.spec-card').forEach(function(card, i){
+    card.style.transitionDelay = (i * 80) + 'ms';
+    specObserver.observe(card);
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const forms = document.querySelectorAll(".lead-form");
+
+  forms.forEach(function(form) {
+
+    form.addEventListener("submit", function () {
+
+      const submitBtn = form.querySelector(".prevent-multiple");
+
+      submitBtn.disabled = true;
+
+      submitBtn.innerHTML = "Submitting...";
+
+      submitBtn.style.opacity = "0.7";
+      submitBtn.style.cursor = "not-allowed";
+
+    });
+
+  });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions – NMIMS CDOE</title>
+   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple-deep:   #3d2e8a;
+      --purple-mid:    #5c48c4;
+      --purple-main:   #8B76EE;
+      --purple-light:  #A597F2;
+      --coral:         #FD886D;
+      --coral-light:   #FBA491;
+      --coral-pale:    #fde0d8;
+      --cream:         #f7f6ff;
+      --white:         #ffffff;
+      --border:        rgba(139,118,238,0.18);
+      --shadow:        rgba(61,46,138,0.12);
+      --text:          #515252;
+      --text-mid:      #3a3a3a;
+      --text-light:    #7A7C7D;
+      --gray-mid:      #6A6B6B;
+      --gray-dark:     #515252;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--text);
+      line-height: 1.80;
+      font-size: 16px;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      height: 4px;
+      background: linear-gradient(90deg,
+        var(--purple-deep) 0%,
+        var(--purple-main) 28%,
+        var(--coral) 50%,
+        var(--purple-main) 72%,
+        var(--purple-deep) 100%);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #2a1f6e 0%, #4a3ab0 100%);
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 3px 30px rgba(61,46,138,.40);
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 13px 44px;
+      display: flex; align-items: center; gap: 18px;
+    }
+    .logo-wrap {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(253,136,109,.30);
+      border-radius: 5px;
+      padding: 7px 14px;
+      display: flex; align-items: center;
+    }
+    .logo-wrap img { height: 50px; width: auto; object-fit: contain; display: block; }
+    .hdr-sep { width: 1px; height: 38px; background: rgba(253,136,109,.28); margin: 0 2px; }
+    .hdr-text { display: flex; flex-direction: column; }
+    .hdr-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 700;
+      color: #fff; letter-spacing: .04em; line-height: 1.1;
+    }
+    .hdr-sub {
+      font-size: 10px; font-weight: 300; color: var(--coral-light);
+      letter-spacing: .22em; text-transform: uppercase; margin-top: 3px;
+    }
+    .hdr-space { flex: 1; }
+    .hdr-pill {
+      font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.45); border: 1px solid rgba(253,136,109,.28);
+      padding: 5px 14px; border-radius: 100px;
+    }
+
+    /* ── ACCENT LINE ── */
+    .gold-line {
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent 0%, var(--purple-main) 22%, var(--coral) 50%, var(--purple-main) 78%, transparent 100%);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(140deg, #2a1f6e 0%, #4a3ab0 60%, #3a2d9e 100%);
+      padding: 72px 40px 62px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 12% 80%, rgba(253,136,109,.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 88% 15%, rgba(165,151,242,.14) 0%, transparent 50%);
+    }
+    .hero::after {
+      content: ''; position: absolute; top: 24px; left: 24px;
+      width: 54px; height: 54px;
+      border-top: 2px solid rgba(253,136,109,.42);
+      border-left: 2px solid rgba(253,136,109,.42);
+    }
+    .hero-br {
+      position: absolute; bottom: 24px; right: 24px;
+      width: 54px; height: 54px;
+      border-bottom: 2px solid rgba(253,136,109,.42);
+      border-right: 2px solid rgba(253,136,109,.42);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-leaf {
+      position: absolute; right: -30px; top: -30px;
+      width: 260px; height: 260px; opacity: .06;
+      background: radial-gradient(circle, var(--coral-light) 0%, transparent 65%);
+    }
+
+    .hero-eyebrow {
+      position: relative; display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--coral-light); font-weight: 300; margin-bottom: 18px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; width: 32px; height: 1px; background: var(--coral); opacity: .55;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 54px); font-weight: 700;
+      color: #fff; line-height: 1.10; position: relative; margin-bottom: 10px;
+      letter-spacing: .01em;
+    }
+    .hero-inst {
+      position: relative; font-size: 13px; font-weight: 300;
+      color: rgba(255,255,255,.55); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .hero-meta {
+      position: relative; font-size: 12px;
+      color: rgba(255,255,255,.38); letter-spacing: .06em;
+    }
+
+    /* ── PAGE ── */
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 40px 92px; }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--purple-mid);
+      padding: 28px 32px 24px;
+      margin-bottom: 58px;
+      box-shadow: 0 4px 26px var(--shadow);
+    }
+    .toc-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--purple-deep); letter-spacing: .16em; text-transform: uppercase;
+      margin-bottom: 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .toc-heading-icon {
+      width: 24px; height: 24px;
+      background: linear-gradient(135deg, #2a1f6e, #4a3ab0);
+      color: #fff; font-size: 11px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 3px; flex-shrink: 0;
+    }
+    .toc-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .toc-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+      gap: 3px 20px;
+    }
+    .toc-grid a {
+      font-size: 13px; font-weight: 400; color: var(--gray-dark); text-decoration: none;
+      padding: 5px 0; border-bottom: 1px solid rgba(139,118,238,.09);
+      display: flex; align-items: center; gap: 10px;
+      transition: color .2s, padding-left .2s;
+    }
+    .toc-grid a:hover { color: var(--purple-mid); padding-left: 6px; }
+    .toc-n { font-size: 10.5px; font-weight: 600; color: var(--coral); letter-spacing: .04em; flex-shrink: 0; width: 22px; }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 48px; scroll-margin-top: 90px; animation: rise .5s ease both; }
+    @keyframes rise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .section:nth-child(1)  { animation-delay:.04s }
+    .section:nth-child(2)  { animation-delay:.08s }
+    .section:nth-child(3)  { animation-delay:.12s }
+    .section:nth-child(4)  { animation-delay:.16s }
+    .section:nth-child(5)  { animation-delay:.20s }
+    .section:nth-child(6)  { animation-delay:.24s }
+    .section:nth-child(7)  { animation-delay:.28s }
+    .section:nth-child(8)  { animation-delay:.32s }
+    .section:nth-child(9)  { animation-delay:.36s }
+    .section:nth-child(10) { animation-delay:.40s }
+    .section:nth-child(11) { animation-delay:.44s }
+    .section:nth-child(12) { animation-delay:.48s }
+
+    .section-hdr {
+      display: flex; align-items: stretch; gap: 0;
+      margin-bottom: 14px;
+      border-bottom: 1.5px solid rgba(139,118,238,.15);
+      padding-bottom: 10px;
+    }
+    .sec-num {
+      background: linear-gradient(135deg, #2a1f6e 0%, #5c48c4 100%);
+      color: var(--coral-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .08em;
+      padding: 4px 16px 4px 12px;
+      flex-shrink: 0; line-height: 1.4;
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+      display: flex; align-items: center;
+    }
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--purple-deep);
+      padding-left: 14px;
+      display: flex; align-items: center;
+      letter-spacing: .01em;
+    }
+
+    .section p {
+      font-size: 15px; font-weight: 300; color: var(--text);
+      margin-bottom: 10px; line-height: 1.82;
+    }
+    .section p strong { font-weight: 600; color: var(--text-mid); }
+
+    .section ul { list-style: none; padding: 0; margin: 10px 0; }
+    .section ul li {
+      font-size: 15px; font-weight: 300; color: var(--text);
+      padding: 7px 0 7px 30px; position: relative;
+      border-bottom: 1px solid rgba(139,118,238,.08);
+    }
+    .section ul li:last-child { border-bottom: none; }
+    .section ul li::before {
+      content: ''; position: absolute; left: 5px; top: 14px;
+      width: 8px; height: 8px;
+      background: linear-gradient(135deg, var(--purple-main), var(--coral));
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    /* ── CALLOUT (info – purple) ── */
+    .callout {
+      background: linear-gradient(135deg, rgba(139,118,238,.06), rgba(253,136,109,.06));
+      border: 1px solid rgba(139,118,238,.18);
+      border-left: 3px solid var(--purple-main);
+      padding: 18px 22px; margin-top: 12px; border-radius: 1px;
+    }
+    .callout p { margin-bottom: 0; }
+
+    /* ── CALLOUT (warning coral) ── */
+    .callout-gold {
+      background: linear-gradient(135deg, rgba(253,136,109,.08), rgba(139,118,238,.04));
+      border: 1px solid rgba(253,136,109,.28);
+      border-left: 3px solid var(--coral);
+      padding: 18px 22px; margin-top: 12px; border-radius: 1px;
+    }
+    .callout-gold p { margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, #2a1f6e 0%, #4a3ab0 100%);
+      padding: 32px 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      position: relative; overflow: hidden;
+    }
+    footer::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(253,136,109,.12) 0%, transparent 60%);
+    }
+    .footer-logo { height: 38px; width: auto; object-fit: contain; opacity: .72; filter: brightness(1.15); position: relative; z-index: 1; }
+    footer p { font-size: 11.5px; color: rgba(255,255,255,.35); letter-spacing: .07em; text-align: center; position: relative; z-index: 1; }
+    footer p strong { color: var(--coral-light); font-weight: 600; }
+    footer .footer-divider { width: 60px; height: 1px; background: rgba(253,136,109,.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .header-inner { padding: 10px 16px; }
+      .hdr-pill, .hdr-sep { display: none; }
+      .logo-wrap img { height: 40px; }
+      .hero { padding: 46px 20px 40px; }
+      .page-wrap { padding: 38px 18px 64px; }
+      .toc { padding: 18px 16px; }
+      .toc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="https://nmimsonlinemba.hikeeducation.com/images/nmimslogo.webp" alt="NMIMS CDOE" />
+    </div>
+    <div class="hdr-sep"></div>
+    <!--<div class="hdr-text">-->
+    <!--  <span class="hdr-name">NMIMS CDOE</span>-->
+    <!--  <span class="hdr-sub">Centre for Distance &amp; Online Education</span>-->
+    <!--</div>-->
+    <div class="hdr-space"></div>
+    <span class="hdr-pill">Legal Document</span>
+  </div>
+</header>
+
+<div class="gold-line"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-leaf"></div>
+  <div class="hero-br"></div>
+  <p class="hero-eyebrow">Official Policy</p>
+  <h1>Terms &amp; Conditions</h1>
+  <p class="hero-inst">NMIMS Centre for Distance and Online Education</p>
+  <!--<p class="hero-meta">Effective Date: April 2025 &nbsp;&middot;&nbsp; Last Updated: April 2025</p>-->
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ── CONTENT ── -->
+<div class="page-wrap">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <div class="toc-heading">
+      <span class="toc-heading-icon">§</span>
+      Table of Contents
+    </div>
+    <div class="toc-grid">
+      <a href="#s1"><span class="toc-n">01</span>Acceptance of Terms</a>
+      <a href="#s2"><span class="toc-n">02</span>Use of Website &amp; Services</a>
+      <a href="#s3"><span class="toc-n">03</span>Collection &amp; Use of Information</a>
+      <a href="#s4"><span class="toc-n">04</span>Data Sharing &amp; Disclosure</a>
+      <a href="#s5"><span class="toc-n">05</span>System &amp; Usage Information</a>
+      <a href="#s6"><span class="toc-n">06</span>Cookies Policy</a>
+      <a href="#s7"><span class="toc-n">07</span>User Consent</a>
+      <a href="#s8"><span class="toc-n">08</span>External Links</a>
+      <a href="#s9"><span class="toc-n">09</span>Security Measures</a>
+      <a href="#s10"><span class="toc-n">10</span>Limitation of Liability</a>
+      <a href="#s11"><span class="toc-n">11</span>Modifications to Terms</a>
+      <a href="#s12"><span class="toc-n">12</span>Governing Law</a>
+    </div>
+  </nav>
+
+  <!-- 01 -->
+  <div class="section" id="s1">
+    <div class="section-hdr">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Acceptance of Terms</h2>
+    </div>
+    <p>By accessing or using the <strong>NMIMS Centre for Distance and Online Education (CDOE)</strong> website or services, users agree to comply with these terms and conditions.</p>
+    <div class="callout">
+      <p>Continued use of the platform indicates acceptance of any updates or modifications made from time to time.</p>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="section" id="s2">
+    <div class="section-hdr">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Use of Website and Services</h2>
+    </div>
+    <p>Users may access general information without registration; however, certain services such as admissions, registrations, subscriptions, and applications require submission of personal details.</p>
+    <p>Users agree to provide <strong>accurate and complete information</strong> while using these services.</p>
+  </div>
+
+  <!-- 03 -->
+  <div class="section" id="s3">
+    <div class="section-hdr">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Collection and Use of Information</h2>
+    </div>
+    <p>NMIMS CDOE collects personal information only for specified purposes such as enrollment, communication, and service improvement.</p>
+    <div class="callout">
+      <p>This information is <strong>not sold or shared</strong> for commercial purposes and is used strictly within institutional requirements.</p>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section" id="s4">
+    <div class="section-hdr">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Data Sharing and Disclosure</h2>
+    </div>
+    <p>Personal data may be shared with authorized employees, consultants, or agents strictly on a <strong>need-to-know basis</strong>. Disclosure may also occur if required by:</p>
+    <ul>
+      <li>Law or applicable regulatory authority</li>
+      <li>Court order or judicial proceedings</li>
+      <li>Protection of institutional rights, including intellectual property</li>
+    </ul>
+  </div>
+
+  <!-- 05 -->
+  <div class="section" id="s5">
+    <div class="section-hdr">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">System and Usage Information</h2>
+    </div>
+    <p>The platform may collect technical data such as IP address, browser details, and usage patterns to improve website performance and security.</p>
+    <p>Such data is analyzed in <strong>aggregate form</strong> and is not linked to individual user identity.</p>
+  </div>
+
+  <!-- 06 -->
+  <div class="section" id="s6">
+    <div class="section-hdr">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Cookies Policy</h2>
+    </div>
+    <p>The website uses cookies to enhance user experience, authentication, and usage tracking. Cookies do <strong>not</strong> store personally identifiable information.</p>
+    <div class="callout-gold">
+      <p>Users can disable cookies through browser settings, but this may limit access to certain features of the platform.</p>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="section" id="s7">
+    <div class="section-hdr">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">User Consent</h2>
+    </div>
+    <p>By submitting information through online forms, users consent to the collection, storage, and use of their data for the intended purpose, including:</p>
+    <ul>
+      <li>Course registrations and enrollment processes</li>
+      <li>Surveys and feedback mechanisms</li>
+      <li>Communication regarding programs and updates</li>
+    </ul>
+  </div>
+
+  <!-- 08 -->
+  <div class="section" id="s8">
+    <div class="section-hdr">
+      <span class="sec-num">08</span>
+      <h2 class="sec-title">External Links and Third-Party Services</h2>
+    </div>
+    <p>The website may contain links to third-party websites and social media platforms. <strong>NMIMS CDOE is not responsible</strong> for the privacy practices, content, or security of these external sites.</p>
+    <div class="callout-gold">
+      <p>Users are advised to review the privacy policies of external websites separately before sharing any personal information.</p>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="section" id="s9">
+    <div class="section-hdr">
+      <span class="sec-num">09</span>
+      <h2 class="sec-title">Security Measures</h2>
+    </div>
+    <p>NMIMS CDOE implements reasonable security practices to protect user data. However, due to the nature of internet communication, <strong>complete security cannot be guaranteed</strong>.</p>
+    <div class="callout">
+      <p>Users share information at their own risk. NMIMS CDOE shall take all reasonably practicable steps to safeguard data against unauthorized access or disclosure.</p>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-hdr">
+      <span class="sec-num">10</span>
+      <h2 class="sec-title">Limitation of Liability</h2>
+    </div>
+    <div class="callout">
+      <p>NMIMS CDOE shall not be held responsible for any loss, damage, or unauthorized access arising from the use of its website or services, including <strong>technical failures or external breaches</strong> beyond its control.</p>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-hdr">
+      <span class="sec-num">11</span>
+      <h2 class="sec-title">Modifications to Terms</h2>
+    </div>
+    <p>NMIMS CDOE reserves the right to update or modify these terms at any time. Updated versions will be posted on the official website.</p>
+    <p>Users are encouraged to review these terms periodically to stay informed of any changes.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-hdr">
+      <span class="sec-num">12</span>
+      <h2 class="sec-title">Governing Law</h2>
+    </div>
+    <p>These terms and conditions shall be governed by and interpreted in accordance with <strong>applicable laws of India</strong>. Any disputes arising shall be subject to the jurisdiction of the appropriate courts.</p>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<div class="gold-line"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <img src="https://nmimsonlinemba.hikeeducation.com/images/nmimslogo.webp" alt="NMIMS CDOE" class="footer-logo" />
+  <div class="footer-divider"></div>
+  <p>&copy; 2026 <strong>NMIMS Centre for Distance and Online Education</strong>. All rights reserved. 
+</footer>
+
+</body>
+</html>
